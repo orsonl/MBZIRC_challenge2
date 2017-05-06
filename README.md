@@ -9,24 +9,6 @@ I created this repository only to provide easier access of my work to the public
 
 The original repository is: kuri-kustar/kuri_mbzirc_challenge_2. 
 
-## Installing
-
-Follow the steps below to install the simulation environment with all it's dependencies.
-
-cd <catkin_ws>
-
-wstool init src
-
-wstool set -t src kuri_mbzirc_challenge_2 https://github.com/kuri-kustar/kuri_mbzirc_challenge_2.git --git
-
-wstool merge -t src https://raw.githubusercontent.com/kuri-kustar/kuri_mbzirc_challenge_2/master/mbzirc.rosinstall
-
-wstool update -t src
-
-rosdep install -y -r --from-paths src --ignore-src --rosdistro $ROS_DISTRO
-
-catkin build
-
 ## Overview
 
 The folder structure is as follows:
