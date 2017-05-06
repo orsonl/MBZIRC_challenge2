@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- Set up -->
+  <include file="$(find kinect2_bridge)/launch/kinect2_bridge.launch" />
+  <include file="$(find velodyne_pointcloud)/launch/VLP16_points.launch" />
+
+  <!-- Exploration -->
+  <node pkg="kuri_mbzirc_challenge_2_exploration" type="box_location" name="box_location" args="" output="screen"/>
+
+  <!-- Panel detection -->
+  <!--<include file="$(find kuri_mbzirc_challenge_2_panel_detection)/launch/ar_pose_single_kinect_husky.launch" />-->
+  <node pkg="kuri_mbzirc_challenge_2_panel_detection" type="circumnavigation_waypoints" name="circumnavigation_waypoints" args="" output="screen"/>
+  <node pkg="kuri_mbzirc_challenge_2_panel_detection" type="panel_waypoint.py" name="panel_waypoint" output="screen"/>
+
+  <node pkg="kuri_mbzirc_challenge_2_wrench_detection" type="panel_detection_kinect2_pose.py" name="panel_detection_kinect2_pose" output="screen"/>
+</launch>

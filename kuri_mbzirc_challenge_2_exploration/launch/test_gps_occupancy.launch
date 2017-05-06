@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<launch>
+  <arg name="isDebug" default="false" />
+  <arg name="debugPrefix" value="gdb -ex run --args" if="$(arg isDebug)" />
+  <arg name="debugPrefix" value="" unless="$(arg isDebug)"/>
+
+  <!--- Load parameters -->
+  <rosparam command="load" file="$(find kuri_mbzirc_challenge_2_exploration)/config/exploration.yaml" ns="mbzirc_ch2_exploration"/>
+
+  <!-- Node -->
+  <node name="test_gps_occupancy" pkg="kuri_mbzirc_challenge_2_exploration" type="test_gps_occupancy" output="screen" launch-prefix="$(arg debugPrefix)"/>-->
+</launch>

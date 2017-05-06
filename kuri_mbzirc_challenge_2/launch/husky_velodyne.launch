@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+<launch>
+  <!--<arg name="robot_initial_pose" default="-x 6.5  -y 3.2 -z 0.1 -Y 2.05" />-->
+  <arg name="random_panel_wrenches" default="true"/>
+  <arg name="random_panel_location" default="true"/>
+
+  <include file="$(find kuri_mbzirc_challenge_2)/launch/husky.launch">
+    <!--<arg name="robot_initial_pose" value="$(arg robot_initial_pose)" />-->
+    <arg name="random_panel_wrenches" default="$(arg random_panel_wrenches)"/>
+    <arg name="random_panel_location" default="$(arg random_panel_location)"/>
+
+    <arg name="laser_enabled"       value="true"/>
+    <arg name="kinect_enabled"      value="true"/>
+    <arg name="velodyne_enabled"    value="true"/>
+    <arg name="ur5_enabled"         value="false"/>
+    <arg name="gripper_enabled"     value="false"/>
+    <arg name="softkinetic_enabled" value="false"/>
+  </include>
+
+  <!-- Run visualizer -->
+  <node pkg="rviz" type="rviz" name="rviz" args="-d $(find kuri_mbzirc_challenge_2)/rviz/velodyne.rviz"/>
+</launch>

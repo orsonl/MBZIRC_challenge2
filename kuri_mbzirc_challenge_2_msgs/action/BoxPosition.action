@@ -1,0 +1,15 @@
+# Define the goal
+uint8 REQUEST_START=0
+uint8 REQUEST_QUERY=1
+uint8 REQUEST_STOP=2
+uint8 request
+float64 range_min
+float64 range_max
+float64 angle_min
+float64 angle_max
+---
+# Define the result
+bool success
+geometry_msgs/PoseArray waypoints
+---
+# Define a feedback message

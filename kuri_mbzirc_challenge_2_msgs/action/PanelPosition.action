@@ -1,0 +1,8 @@
+# Define the goal
+
+---
+# Define the result
+bool success
+geometry_msgs/PoseArray waypoints
+---
+# Define a feedback message

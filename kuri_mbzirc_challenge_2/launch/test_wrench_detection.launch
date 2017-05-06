@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<launch>
+  <!-- Record data -->
+  <include file="$(find kuri_mbzirc_challenge_2)/launch/record_rosbag.launch">
+    <arg name="record_velodyne" value="false" />
+    <arg name="record_kinect"   value="true"/>
+    <arg name="record_scan"     value="false"/>
+  </include>
+
+  <!--Run state machine -->
+  <node args="wrench_detection" pkg="kuri_mbzirc_challenge_2_system_coordinator" type="state_machine.py" name="state_machine"/>
+
+</launch>

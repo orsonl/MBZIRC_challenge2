@@ -1,0 +1,42 @@
+The two user manuals that come with the Husky is a little bit unclear and out-dated. This document summarizes:
+1. How to set up a computer to communicate with Husky's onboard computer.
+2. The basic command to manage the files in the onboard computer.
+3. How is Velodyne VLP 16 added on the Husky. 
+-------------------------------------------------------------------------------------------------------------
+How to set up a computer to communicate with Husky's onboard computer.
+	One the computer(A) that is going to be connected to the onboard computer: 
+	1. Put the following two lines into /etc/hosts 
+		192.168.1.11    cpr-ests01
+		192.168.1.19    kinect2_nuc
+        2. Connect to the ethernet port on the Husky or the base station.
+        3. SSH to the onboard computer 
+		sudo ssh administrator@192.168.1.11
+		password: clearpath	
+        4. Put the following line into onboard computer's /etc/hosts 
+                <IP of computer A>    <Name of computer A>
+        5. In the terminal of computer A enter the following lines:
+		export ROS_MASTER_URI=http://cpr-ests01:11311
+		export ROS_HOSTNAME=gwfalcon
+        6.*Use rostopic list to see if computer A can see the topics published by the onboard computer. 
+
+        * If computer A cannot receive topic form the onboard computer. The changes have to be make in /etc/network/interfaces
+          Warning: This might mess up the internet connection of computer A
+          I changed the content from the default lines into:
+		auto lo eth0
+		iface lo inet loopback
+		#iface eth0 inet static
+		address 192.168.1.100
+		netmask 255.255.255.0
+        	gateway 192.168.1.11
+        	dns_nameservers 8.8.8.8
+-------------------------------------------------------------------------------------------------------------
+The basic command to manage the files in the onboard computer.
+	To copy a package in the onboard computer to computer A:
+	1. From the onboard computer to computer A 
+		scp -r administrator@192.168.1.11:/home/administrator/catkin_ws/src/<Package_name> /home/<User_name>/<Workspace_name>/src/
+	2. From local computer A to the onboard computer
+		scp -r /home/<User_name>/<Workspace_name>/src/<Package_name> administrator@192.168.1.11:/home/administrator/catkin_ws/src/
+-------------------------------------------------------------------------------------------------------------
+How is Velodyne VLP 16 added on the Husky.
+	Velodyne VLP 16 should be connect to the additional computer on Husky's top plate instead of the onboard computer. 
+        The massive sensor data from Velodyne VLP 16 can break the connection between computer A and the onboard computer.

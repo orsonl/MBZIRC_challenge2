@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="random_panel_wrenches" default="true"/>
+  <arg name="random_panel_location" default="true"/>
+  <arg name="robot_initial_pose" default="-x 0 -y 24.5 -z 0.1 -Y -1.57" />
+
+  <arg name="paused" default="false"/>
+  <arg name="debug" default="false"/>
+  <arg name="gui" default="true" />
+  <arg name="headless" default="false"/>
+
+  <arg name="laser_enabled" default="true"/>
+  <arg name="kinect_enabled" default="false"/>
+  <arg name="velodyne_enabled" default="false"/>
+  <arg name="ur5_enabled" default="false"/>
+  <arg name="gripper_enabled" default="false"/>
+  <arg name="softkinetic_enabled" default="false"/>
+
+
+  <include file="$(find kuri_mbzirc_sim)/launch/mbzirc_arena_2.launch" >
+    <arg name="random_panel_wrenches" default="$(arg random_panel_wrenches)"/>
+    <arg name="random_panel_location" default="$(arg random_panel_location)"/>
+
+    <arg name="paused" default="$(arg paused)"/>
+    <arg name="debug" default="$(arg debug)"/>
+    <arg name="gui" value="$(arg gui)" />
+    <arg name="headless" default="$(arg headless)"/>
+  </include>
+
+
+  <include file="$(find kuri_mbzirc_sim)/launch/spawn_husky.launch">
+    <arg name="husky_gazebo_description" value="$(find kuri_mbzirc_sim)/urdf/husky/description.gazebo.xacro"/>
+    <arg name="robot_initial_pose" value="$(arg robot_initial_pose)"/>
+    <arg name="laser_enabled" value="$(arg laser_enabled)"/>
+    <arg name="kinect_enabled" value="$(arg kinect_enabled)"/>
+    <arg name="velodyne_enabled" default="$(arg velodyne_enabled)"/>
+    <arg name="ur5_enabled" value="$(arg ur5_enabled)"/>
+    <arg name="gripper_enabled" value="$(arg gripper_enabled)"/>
+    <arg name="softkinetic_enabled" value="$(arg softkinetic_enabled)"/>
+  </include>
+
+  <!--- Run Move Base -->
+  <include file="$(find husky_navigation)/launch/move_base.launch">
+    <arg name="no_static_map" value="true"/>
+  </include>
+
+
+
+
+
+</launch>
+

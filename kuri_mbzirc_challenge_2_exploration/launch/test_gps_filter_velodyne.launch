@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<launch>
+
+
+  <!--- Load parameters -->
+  <rosparam command="load" file="$(find kuri_mbzirc_challenge_2_exploration)/config/exploration.yaml" ns="mbzirc_ch2_exploration"/>
+
+  <!--- Box detector -->
+  <node name="velodyne_box_detector" pkg="kuri_mbzirc_challenge_2_exploration" type="velodyne_box_detector" output="screen" />
+
+  <!-- Box detector test client -->
+  <node name="test_velodyne_box_detection" pkg="kuri_mbzirc_challenge_2_exploration" type="test_velodyne_box_detection.py"/>
+
+</launch>

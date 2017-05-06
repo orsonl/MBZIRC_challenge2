@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!--Run a static transform between /odom and /map /-->
+  <node pkg="tf" type="static_transform_publisher" name="base_velodyne_broadcaster" args="-0.33 0 0.9 0 0 0 /base_link /velodyne 100" />
+  
+  <!--- velodyne_detection node -->
+  <node name="velodyne_detection" pkg="detection_velo" type="detection" />
+
+
+  <!--- panel_goalpoint node -->
+  <!--node name="panel_goalpoint" pkg="detect_goal" type="detect_goal_point" /-->
+
+</launch>

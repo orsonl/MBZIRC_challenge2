@@ -1,0 +1,17 @@
+<launch>
+  <node pkg="tf" type="static_transform_publisher" name="world_to_cam" 
+    args="0 0 0.5 -1.57 0 -1.57 world kinect2_rgb_optical_frame 10" />
+
+  <node name="ar_pose" pkg="ar_pose" type="ar_single" respawn="false" output="screen">
+    <param name="marker_pattern" type="string" value="$(find ar_pose)/data/patt.hiro"/>
+    <param name="marker_width" type="double" value="207"/>
+    <param name="marker_center_x" type="double" value="0.0"/>
+    <param name="marker_center_y" type="double" value="0.0"/>
+    <param name="threshold" type="int" value="190"/>
+    <param name="use_history" type="bool" value="true"/>
+    <!--remap from="/visualization_marker" to="/mavros/setpoint_position/local"/-->
+
+    <remap from="camera/camera_info" to="/kinect2/hd/camera_info" />
+    <remap from="camera/image_raw"   to="/kinect2/hd/image_color_rect"/>
+  </node>
+</launch>

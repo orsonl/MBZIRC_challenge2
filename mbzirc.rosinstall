@@ -1,0 +1,31 @@
+# https://github.com/ros-industrial/universal_robot/pull/226
+# https://github.com/ros-industrial/universal_robot/pull/227
+- git:
+    local-name: universal_robot
+    uri: https://github.com/k-okada/universal_robot.git
+    version: bd3df16
+# https://github.com/ros-industrial/universal_robot.git
+# c779432         
+
+# https://github.com/husky/husky/pull/22
+- git:
+    local-name: husky
+    uri: https://github.com/k-okada/husky.git
+    version: 137294a
+- git:
+    local-name: kuri_mbzirc_sim
+    uri: https://github.com/kuri-kustar/kuri_mbzirc_sim.git
+
+- git:
+    local-name: husky_simulator
+    uri: https://github.com/husky/husky_simulator.git
+    version: 4d5f46e5fecca532240ed3df823e035b83fa09ca
+
+- git:
+    local-name: velodyne_simulator
+    uri: https://bitbucket.org/DataspeedInc/velodyne_simulator.git
+    version:  b2b4496
+
+#- git:
+#    local-name: trac-ik
+#    uri: https://bitbucket.org/traclabs/trac_ik.git

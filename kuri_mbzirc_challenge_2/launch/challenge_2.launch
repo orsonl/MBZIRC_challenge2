@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- Exploration -->
+  <node pkg="kuri_mbzirc_challenge_2_exploration" type="box_location" name="box_location" args="" output="screen"/>
+
+
+  <!-- Panel detection -->
+  <!--<include file="$(find kuri_mbzirc_challenge_2_panel_detection)/launch/ar_pose_single_gazebo.launch" />-->
+  <node pkg="kuri_mbzirc_challenge_2_panel_detection" type="circumnavigation_waypoints" name="circumnavigation_waypoints" args="" output="screen"/>
+  <node pkg="kuri_mbzirc_challenge_2_panel_detection" type="panel_waypoint.py" name="panel_waypoint" output="screen"/>
+
+  <node pkg="kuri_mbzirc_challenge_2_wrench_detection" type="panel_detection_kinect2_pose.py" name="panel_detection_kinect2_pose" output="screen">
+    <remap to="/camera/rgb/image_raw"   from="/kinect2/qhd/image_color"/>
+    <remap to="/camera/rgb/camera_info" from="/kinect2/qhd/camera_info"/>
+  </node>
+
+  <node pkg="kuri_mbzirc_challenge_2_wrench_detection" type="wrench_detection_softkinetic.py" name="wrench_detection_softkinetic" output="screen" args="-e">
+    <remap to="/camera2/image_raw"   from="/softkinetic_camera/rgb/image_mono"/>
+    <remap to="/camera2/camera_info" from="/softkinetic_camera/rgb/camera_info"/>
+  </node>
+
+  <!-- Navigation -->
+  <node pkg="kuri_mbzirc_challenge_2" type="huskynavigation_action_server.py" name="husky_navigation_server" args="" output="screen"/>
+</launch>

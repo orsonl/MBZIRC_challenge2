@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<launch>
+
+
+  <!--- Run Move Base -->
+  <include file="$(find husky_navigation)/launch/move_base_mapless_demo.launch" />
+
+  <!--- husky_waypoint_navigation node -->
+  <node name="husky_waypoint_navigation" pkg="husky_wp" type="autonomous_straight.py" />
+
+
+
+</launch>

@@ -1,0 +1,19 @@
+<launch>
+  <!--
+  <node pkg="rviz" type="rviz" name="rviz" 
+    args="-d $(find ar_pose)/launch/live_single.rviz"/>
+  -->
+  
+  <node name="ar_pose" pkg="ar_pose" type="ar_single" respawn="false" output="screen">
+    <param name="marker_pattern" type="string" value="$(find ar_pose)/data/patt.hiro"/>
+    <param name="marker_width" type="double" value="295"/>
+    <param name="marker_center_x" type="double" value="0.0"/>
+    <param name="marker_center_y" type="double" value="0.0"/>
+    <param name="threshold" type="int" value="130"/>
+    <param name="use_history" type="bool" value="true"/>
+    
+    <remap from="/camera/camera_info" to="/camera/rgb/camera_info"/>
+    <remap from="/camera/image_raw"   to="/camera/rgb/image_raw"/>
+    <!--remap from="/visualization_marker" to="/mavros/setpoint_position/local"/-->
+  </node>
+</launch>
