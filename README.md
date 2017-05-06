@@ -31,7 +31,10 @@ catkin build
 
 The folder structure is as follows:
 
-kuri_mbzirc_challenge_2: Simulation and robot environmentkuri_mbzirc_challenge_2_locating_panel: Code for locating the panel in the arena
-kuri_mbzirc_challenge_2_detecting_panel: Positioning after detecting the panel; nbv + vision panel detection
-kuri_mbzirc_challenge_2_system_coordinator: State machine
-kuri_mbzirc_challenge_2_wrench_detection: Wrench detection
+-- kuri_mbzirc_challenge_2: Simulation and robot environmentkuri_mbzirc_challenge_2_locating_panel: Code for locating the panel in the arena
+
+-- kuri_mbzirc_challenge_2_detecting_panel: Positioning after detecting the panel; nbv + vision panel detection
+
+-- kuri_mbzirc_challenge_2_system_coordinator: State machine
+
+-- kuri_mbzirc_challenge_2_wrench_detection: Wrench detection
