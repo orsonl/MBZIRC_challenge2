@@ -5,10 +5,8 @@ The package includes my work in Mohamed Bin Zayed International Robotics Challen
 The package is a collaboration work between Orson Lin and Kahlifa University, Abu Dhabi, UAE. 
 I created this repository only to provide easier access of my work to the public. I do not take the full credit. 
 The original repository is: kuri-kustar/kuri_mbzirc_challenge_2. 
-# # Launch
-roslaunch ugv_teleop manual_control.launch
 
-# Installing
+## Installing
 
 Follow the steps below to install the simulation environment with all it's dependencies.
 
@@ -20,7 +18,7 @@ wstool update -t src
 rosdep install -y -r --from-paths src --ignore-src --rosdistro $ROS_DISTRO
 catkin build
 
-#Overview
+## Overview
 
 The folder structure is as follows:
 
