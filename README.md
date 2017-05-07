@@ -5,7 +5,7 @@ The package includes my work in Mohamed Bin Zayed International Robotics Challen
 
 The package is a collaboration work between Orson Lin and Kahlifa University, Abu Dhabi, UAE.
 
-I created this repository only to provide easier access of my work to the public. I do not take the full credit. 
+I created this repository only to provide easier access to my work. I do not take the full credit. 
 
 The original repository is: kuri-kustar/kuri_mbzirc_challenge_2. 
 
